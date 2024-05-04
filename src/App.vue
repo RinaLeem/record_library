@@ -6,9 +6,9 @@ import { RouterLink, RouterView } from "vue-router";
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Main</RouterLink>
-        <RouterLink to="/TheCure">TheCure</RouterLink>
-        <RouterLink to="/TheSmiths">TheSmiths</RouterLink>
+        <RouterLink to="/" class="links">Main</RouterLink>
+        <RouterLink to="/TheCure" class="links">TheCure</RouterLink>
+        <RouterLink to="/TheSmiths" class="links">TheSmiths</RouterLink>
       </nav>
     </div>
   </header>
@@ -25,14 +25,19 @@ import { RouterLink, RouterView } from "vue-router";
   align-items: center;
   height: 100vh;
 }
+.links {
+  font-size: 16px;
+  text-align: center;
+}
 h1 {
+  font-size: 48px;
+  font-variant: small-caps;
   text-align: center;
   margin: 15px;
 }
 header {
   line-height: 1.5;
   max-height: 100vh;
-  font-size: 72px;
 }
 
 nav {
