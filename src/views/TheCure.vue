@@ -1,17 +1,15 @@
 <script>
 export default {
-  name: 'TheCure'
-}
+  name: "TheCure",
+};
 </script>
 
 <template>
-    <div>
-      <h1>The Cure</h1>
-      <p>Это компонент The Cure</p>
-      <RouterLink to="/Wish">Wish</RouterLink>
-    </div>
-  </template>
-  
-<style scoped>
+  <div class="container">
+    <h1>The Cure</h1>
+    <p>Это компонент The Cure</p>
+    <RouterLink to="/Wish">Wish</RouterLink>
+  </div>
+</template>
 
-</style>
+<style scoped></style>
