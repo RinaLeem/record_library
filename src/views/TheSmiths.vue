@@ -2,12 +2,14 @@
 import { ref } from "vue";
 
 const comments = ref([]);
+const comment_name = ref("");
 const comment_text = ref("");
 let id = 0;
 
 function addToList() {
   if (comment_text.value != "") {
     comments.value.push({
+      name: comment_name.value,
       text: comment_text.value,
       id: id++,
     });
@@ -101,13 +103,18 @@ function addToList() {
     <form @submit.prevent="addToList">
       <input
         type="text"
+        v-model.trim="comment_name"
+        placeholder="Введите имя"
+      />
+      <input
+        type="text"
         v-model.trim="comment_text"
         placeholder="Введите комментарий"
       />
       <input type="button" @click="addToList" value="Добавить" /><br /><br />
     </form>
     <div v-for="item of comments" :key="item.id" class="list">
-      <label :for="item.id"> {{ item.text }}<br /> </label>
+      <label :for="item.id">{{ item.name }}: {{ item.text }}<br /> </label>
     </div>
   </div>
 </template>
@@ -119,27 +126,5 @@ h1 {
 p {
   margin-top: 0px;
   margin-bottom: 40px;
-}
-.album {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  min-width: 600px;
-  margin-bottom: 10px;
-}
-.album_img {
-  width: 200px;
-}
-.album_info {
-  margin-left: 10px;
-}
-.album_name {
-  color: red;
-  font-size: 24px;
-}
-.album_year {
-  color: gray;
-  font-size: 16px;
 }
 </style>

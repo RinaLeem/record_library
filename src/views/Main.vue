@@ -69,3 +69,28 @@ a:hover {
   color: white;
 }
 </style>
+
+<style>
+.album {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 600px;
+  margin-bottom: 10px;
+}
+.album_img {
+  width: 200px;
+}
+.album_info {
+  margin-left: 10px;
+}
+.album_name {
+  color: red;
+  font-size: 24px;
+}
+.album_year {
+  color: gray;
+  font-size: 16px;
+}
+</style>
