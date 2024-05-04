@@ -4,7 +4,7 @@
     <p>What<b> Smith </b>do you want to learn about?</p>
     <div class="colums">
       <div id="element1">
-        <router-link to="/thecure" class="links">The Cure</router-link
+        <router-link to="/TheCure" class="links">The Cure</router-link
         ><br /><br />
         <img
           src="https://m.media-amazon.com/images/I/81PoA51cw3L._AC_UF1000,1000_QL80_.jpg"
@@ -12,7 +12,7 @@
         /><br />
       </div>
       <div id="element2">
-        <router-link to="/thesmiths" class="links">The Smiths</router-link
+        <router-link to="/TheSmiths" class="links">The Smiths</router-link
         ><br /><br />
         <img
           src="https://i.etsystatic.com/36642319/r/il/766e28/4490479645/il_fullxfull.4490479645_6on9.jpg"

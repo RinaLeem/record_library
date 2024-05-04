@@ -6,9 +6,9 @@ import { RouterLink, RouterView } from "vue-router";
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/" class="links">Main</RouterLink>
-        <RouterLink to="/TheCure" class="links">TheCure</RouterLink>
-        <RouterLink to="/TheSmiths" class="links">TheSmiths</RouterLink>
+        <RouterLink to="/TheCure" class="menu">The Cure</RouterLink>
+        <RouterLink to="/" class="menu">Main</RouterLink>
+        <RouterLink to="/TheSmiths" class="menu">The Smiths</RouterLink>
       </nav>
     </div>
   </header>
@@ -28,6 +28,12 @@ import { RouterLink, RouterView } from "vue-router";
 .links {
   font-size: 16px;
   text-align: center;
+}
+.menu {
+  font-size: 16px;
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 h1 {
   font-size: 48px;
@@ -59,8 +65,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
-  background-color: whitesmoke;
+  color: red;
 }
 
 nav a {

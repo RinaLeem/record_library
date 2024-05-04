@@ -122,7 +122,7 @@ const albums = ref([
         src="https://avatars.yandex.net/get-music-content/41288/ae1dd326.a.2514680-1/200x200"
       />
       <div class="album_info">
-        <RouterLink to="/Wish" class="links">Wish</RouterLink>
+        <RouterLink to="/TheCure/Wish" class="links">Wish</RouterLink>
         <p class="album_year" id="wish">1992</p>
       </div>
     </div>
@@ -168,6 +168,7 @@ p {
   margin-top: 40px;
 }
 .links {
+  margin: 0px;
   color: red;
   line-height: 120%;
   font-size: 24px;
