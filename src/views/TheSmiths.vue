@@ -1,21 +1,72 @@
 <script setup>
 import { ref } from "vue";
 
-const comments = ref([]);
 const comment_name = ref("");
-const comment_text = ref("");
-let id = 0;
+const comment_year = ref("");
+const comment_url = ref("");
 
 function addToList() {
-  if (comment_text.value != "" && comment_name.value != "") {
-    comments.value.push({
+  console.log("pressed");
+  if (
+    comment_year.value != "" &&
+    comment_name.value != "" &&
+    comment_url.value != ""
+  ) {
+    albums.value.push({
       name: comment_name.value,
-      text: comment_text.value,
-      id: id++,
+      year: comment_year.value,
+      imageUrl: comment_url.value,
     });
-    comment_text.value = "";
+    comment_name.value = "";
+    comment_year.value = "";
+    comment_url.value = "";
   }
 }
+
+const albums = ref([
+  {
+    name: "Complete",
+    year: 2011,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/f28a81f5.a.296972-1/200x200",
+  },
+  {
+    name: "The Sound Of The Smiths",
+    year: 2008,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200",
+  },
+  {
+    name: "Strangeways, Here We Come",
+    year: 1987,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/4e4aa898.a.299260-1/200x200",
+  },
+  {
+    name: "The Queen Is Dead",
+    year: 1986,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/2c2d8cf3.a.453365-1/200x200",
+  },
+  {
+    name: "Meat Is Murder",
+    year: 1985,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/175191/a6e1f13b.a.4742548-1/200x200",
+  },
+  {
+    name: "Hatful of Hollow",
+    year: 1984,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/38044/5b813fba.a.298107-3/200x200",
+  },
+  {
+    name: "The Smiths",
+    year: 1984,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/4108299a.a.58466-6/200x200",
+  },
+]);
 </script>
 
 <template>
@@ -23,74 +74,11 @@ function addToList() {
     <h1>The Smiths</h1>
     <p>albumography</p>
 
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/28589/f28a81f5.a.296972-1/200x200"
-      />
+    <div v-for="album of albums" :key="album.name" class="album">
+      <img class="album_img" :src="album.imageUrl" />
       <div class="album_info">
-        <p class="album_name">Complete</p>
-        <p class="album_year">2011</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/28589/4108299a.a.58466-6/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">The Sound Of The Smiths</p>
-        <p class="album_year">2008</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5b813fba.a.298107-3/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Strangeways, Here We Come</p>
-        <p class="album_year">1987</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/175191/a6e1f13b.a.4742548-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">The Queen Is Dead</p>
-        <p class="album_year">1986</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/28589/2c2d8cf3.a.453365-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Meat Is Murder</p>
-        <p class="album_year">1985</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/28589/4e4aa898.a.299260-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Hatful of Hollow</p>
-        <p class="album_year">1984</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">The Smiths</p>
-        <p class="album_year">1984</p>
+        <p class="album_name">{{ album.name }}</p>
+        <p class="album_year">{{ album.year }}</p>
       </div>
     </div>
     <!--  
@@ -101,8 +89,9 @@ function addToList() {
     <br />
     <br />
     <form @submit.prevent="addToList">
-      <input type="text" v-model.trim="comment_name" placeholder="your name" />
-      <input type="text" v-model.trim="comment_text" placeholder="comment" />
+      <input type="text" v-model.trim="comment_name" placeholder="album name" />
+      <input type="number" v-model.trim="comment_year" placeholder="year" />
+      <input type="url" v-model="comment_url" placeholder="album pic" />
       <input
         type="button"
         class="button"
@@ -110,9 +99,6 @@ function addToList() {
         value=" Add "
       /><br /><br />
     </form>
-    <div v-for="item of comments" :key="item.id" class="list">
-      <label :for="item.id">{{ item.name }}: {{ item.text }}<br /> </label>
-    </div>
   </div>
 </template>
 
