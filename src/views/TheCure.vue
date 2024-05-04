@@ -1,127 +1,137 @@
 <script setup>
 import { ref } from "vue";
 
-const comments = ref([]);
 const comment_name = ref("");
-const comment_text = ref("");
-let id = 0;
+const comment_year = ref("");
+const comment_url = ref("");
 
 function addToList() {
-  if (comment_text.value != "" && comment_name.value != "") {
-    comments.value.push({
+  console.log("pressed");
+  if (
+    comment_year.value != "" &&
+    comment_name.value != "" &&
+    comment_url.value != ""
+  ) {
+    albums.value.push({
       name: comment_name.value,
-      text: comment_text.value,
-      id: id++,
+      year: comment_year.value,
+      imageUrl: comment_url.value,
     });
-    comment_text.value = "";
+    comment_name.value = "";
+    comment_year.value = "";
+    comment_url.value = "";
   }
 }
+
+const albums = ref([
+  {
+    name: "4:13 Dream",
+    year: 2008,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/9659c0dd.a.7936-3/200x200",
+  },
+  {
+    name: "The Cure",
+    year: 2004,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/192707/8590c725.a.6682099-1/200x200",
+  },
+  {
+    name: "Bloodflowers",
+    year: 2000,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/49876/7262e861.a.4418363-1/200x200",
+  },
+  {
+    name: "Wild Mood Swings",
+    year: 1996,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/38044/90e23cbc.a.2510707-1/200x200",
+  },
+  {
+    name: "Show",
+    year: 1993,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/49876/03a837ca.a.2514056-1/200x200",
+  },
+  {
+    name: "Disintegration",
+    year: 1989,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/b711846c.a.62176-1/200x200",
+  },
+  {
+    name: "Kiss Me, Kiss Me, Kiss Me",
+    year: 1987,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/49707/27c688bc.a.85679-1/200x200",
+  },
+  {
+    name: "The Head On The Door",
+    year: 1985,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/41288/24aa482c.a.8663-1/200x200",
+  },
+  {
+    name: "The Top",
+    year: 1984,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/34131/bcb767ef.a.383700-1/200x200",
+  },
+  {
+    name: "Pornography",
+    year: 1983,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/4399834/171cec45.a.17997333-1/200x200",
+  },
+  {
+    name: "Japanese Whispers",
+    year: 1982,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/affa9479.a.2515689-1/200x200",
+  },
+  {
+    name: "Faith",
+    year: 1981,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/139444/972288a2.a.6120745-1/200x200",
+  },
+  {
+    name: "Seventeen Seconds",
+    year: 1980,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/5236179/f9b397b3.a.18022949-1/200x200",
+  },
+  {
+    name: "Three Imaginary Boys",
+    year: 1979,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/49707/60804405.a.357802-1/200x200",
+  },
+]);
 </script>
 
 <template>
   <div class="container">
     <h1>The Cure</h1>
     <p>albumography</p>
-    <RouterLink to="/Wish" class="links">Wish</RouterLink>
 
     <div class="album">
       <img
         class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+        src="https://avatars.yandex.net/get-music-content/41288/ae1dd326.a.2514680-1/200x200"
       />
       <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
+        <RouterLink to="/Wish" class="links">Wish</RouterLink>
+        <p class="album_year" id="wish">1992</p>
       </div>
     </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
+
+    <div v-for="album of albums" :key="album.name" class="album">
+      <img class="album_img" :src="album.imageUrl" />
       <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
-      </div>
-    </div>
-    <div class="album">
-      <img
-        class="album_img"
-        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
-      />
-      <div class="album_info">
-        <p class="album_name">Name</p>
-        <p class="album_year">1999</p>
+        <p class="album_name">{{ album.name }}</p>
+        <p class="album_year">{{ album.year }}</p>
       </div>
     </div>
 
@@ -133,18 +143,16 @@ function addToList() {
     <br />
     <br />
     <form @submit.prevent="addToList">
-      <input type="text" v-model.trim="comment_name" placeholder="your name" />
-      <input type="text" v-model.trim="comment_text" placeholder="comment" />
+      <input type="text" v-model.trim="comment_name" placeholder="album name" />
+      <input type="number" v-model.trim="comment_year" placeholder="year" />
+      <input type="url" v-model="comment_url" placeholder="album pic" />
       <input
         type="button"
         class="button"
         @click="addToList"
-        value="Add"
+        value=" Add "
       /><br /><br />
     </form>
-    <div v-for="item of comments" :key="item.id" class="list">
-      <label :for="item.id">{{ item.name }}: {{ item.text }}<br /> </label>
-    </div>
   </div>
 </template>
 
@@ -156,9 +164,11 @@ p {
   margin-top: 0px;
   margin-bottom: 40px;
 }
-
+#wish {
+  margin-top: 40px;
+}
 .links {
-  color: black;
+  color: red;
   line-height: 120%;
   font-size: 24px;
   text-align: center;
