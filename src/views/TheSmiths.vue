@@ -101,16 +101,8 @@ function addToList() {
     <br />
     <br />
     <form @submit.prevent="addToList">
-      <input
-        type="text"
-        v-model.trim="comment_name"
-        placeholder="Введите имя"
-      />
-      <input
-        type="text"
-        v-model.trim="comment_text"
-        placeholder="Введите комментарий"
-      />
+      <input type="text" v-model.trim="comment_name" placeholder="your name" />
+      <input type="text" v-model.trim="comment_text" placeholder="comment" />
       <input
         type="button"
         class="button"

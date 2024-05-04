@@ -34,6 +34,96 @@ function addToList() {
         <p class="album_year">1999</p>
       </div>
     </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
 
     <!--  
     
@@ -43,17 +133,14 @@ function addToList() {
     <br />
     <br />
     <form @submit.prevent="addToList">
+      <input type="text" v-model.trim="comment_name" placeholder="your name" />
+      <input type="text" v-model.trim="comment_text" placeholder="comment" />
       <input
-        type="text"
-        v-model.trim="comment_name"
-        placeholder="Введите имя"
-      />
-      <input
-        type="text"
-        v-model.trim="comment_text"
-        placeholder="Введите комментарий"
-      />
-      <input type="button" @click="addToList" value="Добавить" /><br /><br />
+        type="button"
+        class="button"
+        @click="addToList"
+        value="Add"
+      /><br /><br />
     </form>
     <div v-for="item of comments" :key="item.id" class="list">
       <label :for="item.id">{{ item.name }}: {{ item.text }}<br /> </label>
