@@ -8,7 +8,7 @@
 a,
 .green {
   text-decoration: none;
-  color: hsla(260, 100%, 37%, 1);
+  color: rgb(255, 255, 255);
   transition: 0.4s;
   padding: 3px;
 }
@@ -16,6 +16,7 @@ a,
 @media (hover: hover) {
   a:hover {
     background-color: white;
+    color: black;
   }
 }
 

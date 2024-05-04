@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Welcome to Smith's Audio Library</h1>
-    <p>What Smith do you want to learn about?</p>
+    <p>What <b>Smith</b> do you want to learn about?</p>
     <div class="colums">
       <div id="element1">
         <router-link to="/thecure" class="links">The Cure</router-link
@@ -46,6 +46,11 @@ img {
   width: 400px;
   height: 100%;
 }
+b:hover {
+  color: red;
+  font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
 .links {
   color: black;
   line-height: 120%;
@@ -53,5 +58,15 @@ img {
   text-align: center;
   margin: 30%;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+nav a {
+  display: inline-block;
+  padding: 0 10px;
+  border-left: 1px solid var(--color-border);
+  background-color: black;
+}
+a:hover {
+  background-color: rgb(79, 79, 79);
+  color: white;
 }
 </style>

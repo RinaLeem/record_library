@@ -48,8 +48,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px;
 
-  background-color: gainsboro;
+  background-color: rgb(79, 79, 79);
   width: 100%;
   font-size: 12px;
   text-align: center;
