@@ -1,14 +1,10 @@
-<script>
-export default {
-  name: "TheCure",
-};
-</script>
+<script setup></script>
 
 <template>
   <div class="container">
     <h1>The Cure</h1>
     <p>Это компонент The Cure</p>
-    <RouterLink to="/Wish">Wish</RouterLink>
+    <RouterLink to="/Wish" class="links">Wish</RouterLink>
   </div>
 </template>
 
