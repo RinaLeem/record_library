@@ -7,7 +7,7 @@ const comment_text = ref("");
 let id = 0;
 
 function addToList() {
-  if (comment_text.value != "") {
+  if (comment_text.value != "" && comment_name.value != "") {
     comments.value.push({
       name: comment_name.value,
       text: comment_text.value,
@@ -111,7 +111,12 @@ function addToList() {
         v-model.trim="comment_text"
         placeholder="Введите комментарий"
       />
-      <input type="button" @click="addToList" value="Добавить" /><br /><br />
+      <input
+        type="button"
+        class="button"
+        @click="addToList"
+        value=" Add "
+      /><br /><br />
     </form>
     <div v-for="item of comments" :key="item.id" class="list">
       <label :for="item.id">{{ item.name }}: {{ item.text }}<br /> </label>

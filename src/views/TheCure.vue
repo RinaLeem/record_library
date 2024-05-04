@@ -7,7 +7,7 @@ const comment_text = ref("");
 let id = 0;
 
 function addToList() {
-  if (comment_text.value != "") {
+  if (comment_text.value != "" && comment_name.value != "") {
     comments.value.push({
       name: comment_name.value,
       text: comment_text.value,
