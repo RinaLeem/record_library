@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Welcome to Smith's Audio Library</h1>
-    <p>What <b>Smith</b> do you want to learn about?</p>
+    <p>What<b> Smith </b>do you want to learn about?</p>
     <div class="colums">
       <div id="element1">
         <router-link to="/thecure" class="links">The Cure</router-link
@@ -48,8 +48,7 @@ img {
 }
 b:hover {
   color: red;
-  font-size: large;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Arial", "Verdana", sans-serif;
 }
 .links {
   color: black;
