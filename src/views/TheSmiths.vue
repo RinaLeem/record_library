@@ -19,8 +19,25 @@ function addToList() {
 <template>
   <div class="container">
     <h1>The Smiths</h1>
-    <p>Это компонент The Smiths</p>
+    <p>albumography</p>
 
+    <div class="album">
+      <img
+        class="album_img"
+        src="https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200"
+      />
+      <div class="album_info">
+        <p class="album_name">Name</p>
+        <p class="album_year">1999</p>
+      </div>
+    </div>
+    <!--  
+    
+    
+    
+    -->
+    <br />
+    <br />
     <form @submit.prevent="addToList">
       <input
         type="text"
@@ -37,4 +54,33 @@ function addToList() {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  margin-bottom: 0px;
+}
+p {
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+.album {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 600px;
+}
+.album_img {
+  width: 200px;
+}
+.album_info {
+  margin-left: 10px;
+}
+.album_name {
+  color: red;
+  font-size: 24px;
+}
+.album_year {
+  color: gray;
+  font-size: 12px;
+}
+</style>
