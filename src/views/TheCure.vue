@@ -1,28 +1,44 @@
 <script setup>
 import { ref } from "vue";
 
-const comment_name = ref("");
-const comment_year = ref("");
-const comment_url = ref("");
+const inputAlbum = ref({
+  name: "",
+  year: "",
+  url: "",
+});
 
+// Добавить проверку на валидность года
 function addToList() {
   console.log("pressed");
-  if (
-    comment_year.value != "" &&
-    comment_name.value != "" &&
-    comment_url.value != ""
-  ) {
+  if (checkInput()) {
     albums.value.push({
-      name: comment_name.value,
-      year: comment_year.value,
-      imageUrl: comment_url.value,
+      name: inputAlbum.value.name,
+      year: inputAlbum.value.year,
+      imageUrl: inputAlbum.value.url,
     });
-    comment_name.value = "";
-    comment_year.value = "";
-    comment_url.value = "";
+    inputAlbum.value.name = "";
+    inputAlbum.value.year = "";
+    inputAlbum.value.url = "";
   }
 }
 
+function deleteFromList(index) {
+  albums.value.splice(index, 1);
+}
+function checkInput() {
+  if (
+    inputAlbum.value &&
+    inputAlbum.value.name != "" &&
+    inputAlbum.value.year >= "100" &&
+    inputAlbum.value.year <= "2024" &&
+    inputAlbum.value.year != "" &&
+    inputAlbum.value.url != ""
+  )
+    return true;
+  else return false;
+}
+
+// Перенести список в отдельный файл
 const albums = ref([
   {
     name: "4:13 Dream",
@@ -143,9 +159,19 @@ const albums = ref([
     <br />
     <br />
     <form @submit.prevent="addToList">
-      <input type="text" v-model.trim="comment_name" placeholder="album name" />
-      <input type="number" v-model.trim="comment_year" placeholder="year" />
-      <input type="url" v-model="comment_url" placeholder="album pic" />
+      <input
+        type="text"
+        v-model.trim="inputAlbum.name"
+        placeholder="album name"
+      />
+      <input
+        type="number"
+        v-model.trim="inputAlbum.year"
+        placeholder="year"
+        max="2024"
+        min="1000"
+      />
+      <input type="url" v-model="inputAlbum.url" placeholder="album pic" />
       <input
         type="button"
         class="button"
