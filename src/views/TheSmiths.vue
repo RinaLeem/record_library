@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { albumsTheSmith } from "./data.js";
 
 const inputAlbum = ref({
   name: "",
@@ -10,7 +11,7 @@ const inputAlbum = ref({
 function addToList() {
   console.log("pressed");
   if (checkInput()) {
-    albums.value.push({
+    albumsTheSmith.value.push({
       name: inputAlbum.value.name,
       year: inputAlbum.value.year,
       imageUrl: inputAlbum.value.url,
@@ -22,7 +23,7 @@ function addToList() {
 }
 
 function deleteFromList(index) {
-  albums.value.splice(index, 1);
+  albumsTheSmith.value.splice(index, 1);
 }
 
 function checkInput() {
@@ -37,51 +38,6 @@ function checkInput() {
     return true;
   else return false;
 }
-
-const albums = ref([
-  {
-    name: "Complete",
-    year: 2011,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/28589/f28a81f5.a.296972-1/200x200",
-  },
-  {
-    name: "The Sound Of The Smiths",
-    year: 2008,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/38044/5518394f.a.298106-1/200x200",
-  },
-  {
-    name: "Strangeways, Here We Come",
-    year: 1987,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/28589/4e4aa898.a.299260-1/200x200",
-  },
-  {
-    name: "The Queen Is Dead",
-    year: 1986,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/28589/2c2d8cf3.a.453365-1/200x200",
-  },
-  {
-    name: "Meat Is Murder",
-    year: 1985,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/175191/a6e1f13b.a.4742548-1/200x200",
-  },
-  {
-    name: "Hatful of Hollow",
-    year: 1984,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/38044/5b813fba.a.298107-3/200x200",
-  },
-  {
-    name: "The Smiths",
-    year: 1984,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/28589/4108299a.a.58466-6/200x200",
-  },
-]);
 </script>
 
 <template>
@@ -89,7 +45,11 @@ const albums = ref([
     <h1>The Smiths</h1>
     <p>albumography</p>
 
-    <div v-for="(album, index) of albums" :key="album.name" class="album">
+    <div
+      v-for="(album, index) of albumsTheSmith"
+      :key="album.name"
+      class="album"
+    >
       <img class="album_img" :src="album.imageUrl" />
       <div class="album_info">
         <p class="album_name">{{ album.name }}</p>

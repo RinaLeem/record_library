@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { albumsTheCure } from "./data.js";
 
 const inputAlbum = ref({
   name: "",
@@ -7,11 +8,10 @@ const inputAlbum = ref({
   url: "",
 });
 
-// Добавить проверку на валидность года
 function addToList() {
   console.log("pressed");
   if (checkInput()) {
-    albums.value.push({
+    albumsTheCure.value.push({
       name: inputAlbum.value.name,
       year: inputAlbum.value.year,
       imageUrl: inputAlbum.value.url,
@@ -23,7 +23,7 @@ function addToList() {
 }
 
 function deleteFromList(index) {
-  albums.value.splice(index, 1);
+  albumsTheCure.value.splice(index, 1);
 }
 function checkInput() {
   if (
@@ -39,92 +39,6 @@ function checkInput() {
 }
 
 // Перенести список в отдельный файл
-const albums = ref([
-  {
-    name: "4:13 Dream",
-    year: 2008,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/28589/9659c0dd.a.7936-3/200x200",
-  },
-  {
-    name: "The Cure",
-    year: 2004,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/192707/8590c725.a.6682099-1/200x200",
-  },
-  {
-    name: "Bloodflowers",
-    year: 2000,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/49876/7262e861.a.4418363-1/200x200",
-  },
-  {
-    name: "Wild Mood Swings",
-    year: 1996,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/38044/90e23cbc.a.2510707-1/200x200",
-  },
-  {
-    name: "Show",
-    year: 1993,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/49876/03a837ca.a.2514056-1/200x200",
-  },
-  {
-    name: "Disintegration",
-    year: 1989,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/28589/b711846c.a.62176-1/200x200",
-  },
-  {
-    name: "Kiss Me, Kiss Me, Kiss Me",
-    year: 1987,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/49707/27c688bc.a.85679-1/200x200",
-  },
-  {
-    name: "The Head On The Door",
-    year: 1985,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/41288/24aa482c.a.8663-1/200x200",
-  },
-  {
-    name: "The Top",
-    year: 1984,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/34131/bcb767ef.a.383700-1/200x200",
-  },
-  {
-    name: "Pornography",
-    year: 1983,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/4399834/171cec45.a.17997333-1/200x200",
-  },
-  {
-    name: "Japanese Whispers",
-    year: 1982,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/28589/affa9479.a.2515689-1/200x200",
-  },
-  {
-    name: "Faith",
-    year: 1981,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/139444/972288a2.a.6120745-1/200x200",
-  },
-  {
-    name: "Seventeen Seconds",
-    year: 1980,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/5236179/f9b397b3.a.18022949-1/200x200",
-  },
-  {
-    name: "Three Imaginary Boys",
-    year: 1979,
-    imageUrl:
-      "https://avatars.yandex.net/get-music-content/49707/60804405.a.357802-1/200x200",
-  },
-]);
 </script>
 
 <template>
@@ -143,11 +57,12 @@ const albums = ref([
       </div>
     </div>
 
-    <div v-for="album of albums" :key="album.name" class="album">
+    <div v-for="album of albumsTheCure" :key="album.name" class="album">
       <img class="album_img" :src="album.imageUrl" />
       <div class="album_info">
         <p class="album_name">{{ album.name }}</p>
         <p class="album_year">{{ album.year }}</p>
+        <button @click="deleteFromList(index)">X</button>
       </div>
     </div>
 
