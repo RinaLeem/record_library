@@ -49,10 +49,10 @@ function checkInput() {
       :key="album.name"
       class="album"
     >
-      <img class="album_img" :src="album.imageUrl" />
-      <div class="album_info">
-        <p class="album_name">{{ album.name }}</p>
-        <p class="album_year">{{ album.year }}</p>
+      <img class="albumImg" :src="album.imageUrl" />
+      <div class="albumInfo">
+        <p class="albumName">{{ album.name }}</p>
+        <p class="albumYear">{{ album.year }}</p>
         <button @click="deleteFromList(index)">X</button>
       </div>
     </div>

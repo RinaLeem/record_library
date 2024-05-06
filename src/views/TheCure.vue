@@ -48,20 +48,20 @@ function checkInput() {
 
     <div class="album">
       <img
-        class="album_img"
+        class="albumImg"
         src="https://avatars.yandex.net/get-music-content/41288/ae1dd326.a.2514680-1/200x200"
       />
-      <div class="album_info">
+      <div class="albumInfo">
         <RouterLink to="/TheCure/11" class="links">Wish</RouterLink>
-        <p class="album_year" id="wish">1992</p>
+        <p class="albumYear" id="wish">1992</p>
       </div>
     </div>
 
     <div v-for="album of albumsTheCure" :key="album.name" class="album">
-      <img class="album_img" :src="album.imageUrl" />
-      <div class="album_info">
-        <p class="album_name">{{ album.name }}</p>
-        <p class="album_year">{{ album.year }}</p>
+      <img class="albumImg" :src="album.imageUrl" />
+      <div class="albumInfo">
+        <p class="albumName">{{ album.name }}</p>
+        <p class="albumYear">{{ album.year }}</p>
         <button @click="deleteFromList(index)">X</button>
       </div>
     </div>

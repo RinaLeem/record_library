@@ -91,17 +91,17 @@ a:hover {
   min-width: 600px;
   margin-bottom: 10px;
 }
-.album_img {
+.albumImg {
   width: 200px;
 }
-.album_info {
+.albumInfo {
   margin-left: 10px;
 }
-.album_name {
+.albumName {
   color: red;
   font-size: 24px;
 }
-.album_year {
+.albumYear {
   color: gray;
   font-size: 16px;
 }
