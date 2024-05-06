@@ -5,19 +5,53 @@ import { albumWish } from "./data.js";
 <template>
   <div>
     <h1>The Cure</h1>
-    <p>Wish</p>
-    <div v-for="album of albumWish" :key="album.name" class="album">
+    <h2 class="pageTitle">Wish</h2>
+    <br />
+    <div v-for="album of albumWish" :key="album.id" class="album">
       <!-- <img class="albumImg" :src="album.imageUrl" /> -->
       <div class="albumInfo">
-        <p class="songName">index{{ album.name }}</p>
-        <p class="songInfo">{{ album.duration }}</p>
-        <p class="songInfo">{{ album.genre }}</p>
+        <p class="songId">({{ album.id }})</p>
+        <p class="songName">
+          <b>{{ album.name }}</b>
+        </p>
+        <p class="songDuration">{{ album.duration }}</p>
+        <p class="songGenre">{{ album.genre }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+h1 {
+  margin-bottom: 0px;
+}
+.pageTitle {
+  text-align: center;
+}
+p {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
 .albumInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 600px;
+  margin-bottom: 10px;
+}
+.songId {
+  color: gainsboro;
+}
+.songName {
+  color: red;
+}
+.songDuration {
+  color: gray;
+  margin-left: 10px;
+}
+.songGenre {
+  margin-left: auto;
 }
 </style>
