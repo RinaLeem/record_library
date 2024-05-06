@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from "vue";
-import { albumsTheSmith } from "./data.js";
+import { albumsTheSmithNotRef } from "./data.js";
+import {
+  addAlbum as addToAlbums,
+  deleteAlbum as deleteFromAlbums,
+  getAllAlbums,
+} from "./albums.js";
 
 const inputAlbum = ref({
   name: "",
@@ -8,21 +13,32 @@ const inputAlbum = ref({
   url: "",
 });
 
-function addToList() {
-  console.log("pressed");
+function addAlbum() {
   if (checkInput()) {
-    albumsTheSmith.value.push({
-      name: inputAlbum.value.name,
-      year: inputAlbum.value.year,
-      imageUrl: inputAlbum.value.url,
-    });
+    const name = inputAlbum.value.name;
+    const year = inputAlbum.value.year;
+    const url = inputAlbum.value.url;
+
+    const newAlbum = {
+      name: name,
+      year: year,
+      imageUrl: url,
+    };
+    addToAlbums(newAlbum);
+    updateAlbumsList();
     inputAlbum.value.name = "";
     inputAlbum.value.year = "";
     inputAlbum.value.url = "";
   }
 }
-function deleteFromList(index) {
-  albumsTheSmith.value.splice(index, 1);
+
+function deleteAlbum(index) {
+  deleteFromAlbums(index);
+  updateAlbumsList();
+}
+
+function updateAlbumsList() {
+  getAllAlbums();
 }
 
 function checkInput() {
@@ -45,7 +61,7 @@ function checkInput() {
     <p>albumography</p>
 
     <div
-      v-for="(album, index) of albumsTheSmith"
+      v-for="(album, index) of albumsTheSmithNotRef"
       :key="album.name"
       class="album"
     >
@@ -53,11 +69,14 @@ function checkInput() {
       <div class="album_info">
         <p class="album_name">{{ album.name }}</p>
         <p class="album_year">{{ album.year }}</p>
-        <button @click="deleteFromList(index)">X</button>
+        <button @click="deleteAlbum(index)">X</button>
       </div>
     </div>
-    <!--  
 
+    <!--  
+    
+    
+    
     -->
     <br />
     <br />
@@ -78,7 +97,7 @@ function checkInput() {
       <input
         type="button"
         class="button"
-        @click="addToList"
+        @click="addAlbum"
         value=" Add "
       /><br /><br />
     </form>

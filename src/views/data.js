@@ -131,3 +131,30 @@ export const albumsTheSmith = ref([
       "https://avatars.yandex.net/get-music-content/28589/4108299a.a.58466-6/200x200",
   },
 ]);
+
+export const albumsTheSmithNotRef = [
+  {
+    name: "The Queen Is Dead",
+    year: 1986,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/2c2d8cf3.a.453365-1/200x200",
+  },
+  {
+    name: "Meat Is Murder",
+    year: 1985,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/175191/a6e1f13b.a.4742548-1/200x200",
+  },
+  {
+    name: "Hatful of Hollow",
+    year: 1984,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/38044/5b813fba.a.298107-3/200x200",
+  },
+  {
+    name: "The Smiths",
+    year: 1984,
+    imageUrl:
+      "https://avatars.yandex.net/get-music-content/28589/4108299a.a.58466-6/200x200",
+  },
+];

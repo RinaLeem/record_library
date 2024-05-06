@@ -28,6 +28,11 @@ const router = createRouter({
       name: "TheSmiths",
       component: () => import("../views/TheSmiths.vue"),
     },
+    {
+      path: "/30",
+      name: "TheSmithsNotRef",
+      component: () => import("../views/TheSmithsNotRef.vue"),
+    },
   ],
 });
 
