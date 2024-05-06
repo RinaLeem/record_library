@@ -1,4 +1,6 @@
-const albumsTheCure = ref([
+import { ref } from "vue";
+
+export const albumsTheCure = ref([
   {
     name: "4:13 Dream",
     year: 2008,
@@ -85,7 +87,7 @@ const albumsTheCure = ref([
   },
 ]);
 
-const albumsTheSmith = ref([
+export const albumsTheSmith = ref([
   {
     name: "Complete",
     year: 2011,
