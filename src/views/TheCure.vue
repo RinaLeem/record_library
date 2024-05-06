@@ -52,7 +52,7 @@ function checkInput() {
         src="https://avatars.yandex.net/get-music-content/41288/ae1dd326.a.2514680-1/200x200"
       />
       <div class="albumInfo">
-        <RouterLink to="/TheCure/11" class="links">Wish</RouterLink>
+        <RouterLink to="/11" class="links">Wish</RouterLink>
         <p class="albumYear" id="wish">1992</p>
       </div>
     </div>

@@ -87,6 +87,81 @@ export const albumsTheCure = ref([
   },
 ]);
 
+export const albumWish = ref([
+  {
+    id: "1",
+    name: "Open",
+    duration: "6:50",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "2",
+    name: "High",
+    duration: "3:31",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "3",
+    name: "Apart",
+    duration: "6:34",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "4",
+    name: "From The Edge Of The Deep Green Sea",
+    duration: "7:40",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "5",
+    name: "Wendy Time",
+    duration: "5:10",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "6",
+    name: "Doing The Unstuck",
+    duration: "4:21",
+    genre: ["Dream Pop", "Gothic Rock"],
+  },
+  {
+    id: "7",
+    name: "Friday I'm In Love",
+    duration: "3:34",
+    genre: ["Dream Pop", "Gothic Rock"],
+  },
+  {
+    id: "8",
+    name: "Trust",
+    duration: "5:30",
+    genre: ["Dream Pop", "Gothic Rock"],
+  },
+  {
+    id: "9",
+    name: "A Letter To Elise",
+    duration: "5:12",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "10",
+    name: "Cut",
+    duration: "5:49",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "11",
+    name: "To Wish Impossible Things",
+    duration: "4:39",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+  {
+    id: "12",
+    name: "End",
+    duration: "6:45",
+    genre: ["Alternative Rock", "Gothic Rock"],
+  },
+]);
+
 export const albumsTheSmith = ref([
   {
     name: "Complete",
