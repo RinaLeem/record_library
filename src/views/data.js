@@ -110,13 +110,11 @@ export const albumWish = ref([
     id: "4",
     name: "From The Edge Of The Deep Green Sea",
     duration: "7:40",
-    genre: ["Alternative Rock", "Gothic Rock"],
   },
   {
     id: "5",
     name: "Wendy Time",
     duration: "5:10",
-    genre: ["Alternative Rock", "Gothic Rock"],
   },
   {
     id: "6",
@@ -140,7 +138,6 @@ export const albumWish = ref([
     id: "9",
     name: "A Letter To Elise",
     duration: "5:12",
-    genre: ["Alternative Rock", "Gothic Rock"],
   },
   {
     id: "10",

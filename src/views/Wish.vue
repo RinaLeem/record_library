@@ -1,5 +1,12 @@
 <script setup>
 import { albumWish } from "./data.js";
+
+function formatGenres(genres) {
+  if (!genres || genres.length === 0) {
+    return " - ";
+  }
+  return genres.join(", ");
+}
 </script>
 
 <template>
@@ -15,7 +22,7 @@ import { albumWish } from "./data.js";
           <b>{{ album.name }}</b>
         </p>
         <p class="songDuration">{{ album.duration }}</p>
-        <p class="songGenre">{{ album.genre }}</p>
+        <p class="songGenre">{{ formatGenres(album.genre) }}</p>
       </div>
     </div>
   </div>
