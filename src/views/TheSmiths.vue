@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { albumsTheSmith } from "./data.js";
+import { zoomIn, zoomOut } from "./zoom";
 
 const inputAlbum = ref({
   name: "",
@@ -49,7 +50,12 @@ function checkInput() {
       :key="album.name"
       class="album"
     >
-      <img class="albumImg" :src="album.imageUrl" />
+      <img
+        class="albumImg zoom"
+        :src="album.imageUrl"
+        @mouseover="zoomIn"
+        @mouseout="zoomOut"
+      />
       <div class="albumInfo">
         <p class="albumName">{{ album.name }}</p>
         <p class="albumYear">{{ album.year }}</p>

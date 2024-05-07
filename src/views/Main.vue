@@ -28,20 +28,10 @@
 </template>
 
 <script setup>
-function zoomIn(event) {
-  event.target.style.transform = "scale(1.5)";
-}
-
-function zoomOut(event) {
-  event.target.style.transform = "scale(1)";
-}
+import { zoomIn, zoomOut } from "./zoom";
 </script>
 
 <style scoped>
-.zoom {
-  transition: transform 0.5s ease-in-out;
-}
-
 .colums {
   padding: 10px;
   display: flex;
@@ -83,6 +73,9 @@ a:hover {
 </style>
 
 <style>
+.zoom {
+  transition: transform 0.5s ease-in-out;
+}
 .album {
   display: flex;
   flex-direction: row;
@@ -93,6 +86,9 @@ a:hover {
 }
 .albumImg {
   width: 200px;
+}
+.albumImg:hover {
+  z-index: 9999;
 }
 .albumInfo {
   margin-left: 10px;

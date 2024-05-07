@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { albumsTheCure } from "./data.js";
+import { zoomIn, zoomOut } from "./zoom";
 
 const inputAlbum = ref({
   name: "",
@@ -48,8 +49,10 @@ function checkInput() {
 
     <div class="album">
       <img
-        class="albumImg"
+        class="albumImg zoom"
         src="https://avatars.yandex.net/get-music-content/41288/ae1dd326.a.2514680-1/200x200"
+        @mouseover="zoomIn"
+        @mouseout="zoomOut"
       />
       <div class="albumInfo">
         <RouterLink to="/11" class="links">Wish</RouterLink>
@@ -58,7 +61,12 @@ function checkInput() {
     </div>
 
     <div v-for="album of albumsTheCure" :key="album.name" class="album">
-      <img class="albumImg" :src="album.imageUrl" />
+      <img
+        class="albumImg zoom"
+        :src="album.imageUrl"
+        @mouseover="zoomIn"
+        @mouseout="zoomOut"
+      />
       <div class="albumInfo">
         <p class="albumName">{{ album.name }}</p>
         <p class="albumYear">{{ album.year }}</p>
