@@ -1,12 +1,14 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { albumsTheSmithNotRef } from "./data.js";
 import { checkInput } from "./function.js";
 import {
+  openDB,
   addAlbum as addToAlbums,
   deleteAlbum as deleteFromAlbums,
   getAllAlbums,
 } from "./albums.js";
+
+const albumsTheSmith = ref([]);
 
 const inputAlbum = ref({
   name: "",
@@ -19,30 +21,37 @@ function addAlbum() {
     const name = inputAlbum.value.name;
     const year = inputAlbum.value.year;
     const url = inputAlbum.value.url;
+    inputAlbum.value.name = "";
+    inputAlbum.value.year = "";
+    inputAlbum.value.url = "";
     const newAlbum = {
       name: name,
       year: year,
       imageUrl: url,
     };
     addToAlbums(newAlbum);
-    updateAlbumsList();
-    inputAlbum.value.name = "";
-    inputAlbum.value.year = "";
-    inputAlbum.value.url = "";
+    updateAlbumsList(albumsTheSmith);
   }
 }
 
 function deleteAlbum(index) {
-  deleteFromAlbums(index);
-  updateAlbumsList();
+  console.log("delete" + index);
+  const albumToDelete = albumsTheSmith.value[index];
+  deleteFromAlbums(albumToDelete);
+  updateAlbumsList(albumsTheSmith);
 }
 
-function updateAlbumsList() {
-  getAllAlbums();
+function updateAlbumsList(albumsTheSmith) {
+  getAllAlbums((albums) => {
+    console.log("Received albums from database:", albums);
+    albumsTheSmith.value = albums;
+    console.log("albumsTheSmith:", albumsTheSmith.value);
+  });
 }
 
-onMounted(() => {
-  updateAlbumsList();
+onMounted(async () => {
+  await openDB();
+  updateAlbumsList(albumsTheSmith);
 });
 </script>
 
@@ -52,7 +61,7 @@ onMounted(() => {
     <p>albumography</p>
 
     <div
-      v-for="(album, index) of albumsTheSmithNotRef"
+      v-for="(album, index) of albumsTheSmith"
       :key="album.name"
       class="album"
     >
@@ -66,12 +75,10 @@ onMounted(() => {
 
     <!--  
     
-    
-    
     -->
     <br />
     <br />
-    <form @submit.prevent="addToList">
+    <form @submit.prevent="addAlbum">
       <input
         type="text"
         v-model.trim="inputAlbum.name"
