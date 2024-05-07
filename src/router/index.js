@@ -31,7 +31,7 @@ const router = createRouter({
     {
       path: "/30",
       name: "TheSmithsNotRef",
-      component: () => import("../views/TheSmithsNotRef.vue"),
+      component: () => import("../views/TheSmithsIndexedDB.vue"),
     },
   ],
 });
