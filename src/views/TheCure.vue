@@ -66,8 +66,6 @@ function deleteFromList(index) {
 
     <!--  
     
-    
-    
     -->
     <br />
     <br />

@@ -72,7 +72,7 @@ export function getAllAlbums(callback) {
   request.onsuccess = function (event) {
     console.log("All albums:", request.result);
     const albums = request.result;
-    console.log(albums);
+    console.log("albums: ", albums);
     if (callback) {
       callback(albums);
     }

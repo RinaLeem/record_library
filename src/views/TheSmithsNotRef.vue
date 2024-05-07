@@ -74,7 +74,7 @@ function updateAlbumsList(albumsTheSmith) {
       <div class="albumInfo">
         <p class="albumName">{{ album.name }}</p>
         <p class="albumYear">{{ album.year }}</p>
-        <button @click="deleteAlbum(index)">X</button>
+        <button @click="deleteAlbum(index)" class="button">X</button>
       </div>
     </div>
 
