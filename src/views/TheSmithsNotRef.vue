@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { albumsTheSmithNotRef } from "./data.js";
+import { checkInput } from "./function.js";
 import {
   addAlbum as addToAlbums,
   deleteAlbum as deleteFromAlbums,
@@ -14,11 +15,10 @@ const inputAlbum = ref({
 });
 
 function addAlbum() {
-  if (checkInput()) {
+  if (checkInput(inputAlbum)) {
     const name = inputAlbum.value.name;
     const year = inputAlbum.value.year;
     const url = inputAlbum.value.url;
-
     const newAlbum = {
       name: name,
       year: year,
@@ -41,18 +41,9 @@ function updateAlbumsList() {
   getAllAlbums();
 }
 
-function checkInput() {
-  if (
-    inputAlbum.value &&
-    inputAlbum.value.name != "" &&
-    inputAlbum.value.year >= "100" &&
-    inputAlbum.value.year <= "2024" &&
-    inputAlbum.value.year != "" &&
-    inputAlbum.value.url != ""
-  )
-    return true;
-  else return false;
-}
+onMounted(() => {
+  updateAlbumsList();
+});
 </script>
 
 <template>

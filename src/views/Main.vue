@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { zoomIn, zoomOut } from "./zoom";
+import { zoomIn, zoomOut } from "./function";
 </script>
 
 <style scoped>

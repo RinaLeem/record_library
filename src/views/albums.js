@@ -32,28 +32,28 @@ export function deleteAlbum(id) {
   objectStore.delete(id);
 }
 
-// export function getAllAlbums() {
-//   const transaction = db.transaction(["albums"], "readonly");
-//   const objectStore = transaction.objectStore("albums");
-//   const request = objectStore.getAll();
-
-//   request.onsuccess = function (event) {
-//     console.log("All albums:", request.result);
-//   };
-// }
-
 export function getAllAlbums() {
-  return new Promise((resolve, reject) => {
-    const transaction = db.transaction(["albums"], "readonly");
-    const objectStore = transaction.objectStore("albums");
-    const request = objectStore.getAll();
+  const transaction = db.transaction(["albums"], "readonly");
+  const objectStore = transaction.objectStore("albums");
+  const request = objectStore.getAll();
 
-    request.onsuccess = function (event) {
-      resolve(request.result);
-    };
-
-    request.onerror = function (event) {
-      reject(request.error);
-    };
-  });
+  request.onsuccess = function (event) {
+    console.log("All albums:", request.result);
+  };
 }
+
+// export function getAllAlbums() {
+//   return new Promise((resolve, reject) => {
+//     const transaction = db.transaction(["albums"], "readonly");
+//     const objectStore = transaction.objectStore("albums");
+//     const request = objectStore.getAll();
+
+//     request.onsuccess = function (event) {
+//       resolve(request.result);
+//     };
+
+//     request.onerror = function (event) {
+//       reject(request.error);
+//     };
+//   });
+// }

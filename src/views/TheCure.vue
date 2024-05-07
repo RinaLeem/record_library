@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { albumsTheCure } from "./data.js";
-import { zoomIn, zoomOut } from "./zoom";
+import { zoomIn, zoomOut, checkInput } from "./function";
 
 const inputAlbum = ref({
   name: "",
@@ -11,7 +11,7 @@ const inputAlbum = ref({
 
 function addToList() {
   console.log("pressed");
-  if (checkInput()) {
+  if (checkInput(inputAlbum)) {
     albumsTheCure.value.push({
       name: inputAlbum.value.name,
       year: inputAlbum.value.year,
@@ -26,20 +26,6 @@ function addToList() {
 function deleteFromList(index) {
   albumsTheCure.value.splice(index, 1);
 }
-function checkInput() {
-  if (
-    inputAlbum.value &&
-    inputAlbum.value.name != "" &&
-    inputAlbum.value.year >= "100" &&
-    inputAlbum.value.year <= "2024" &&
-    inputAlbum.value.year != "" &&
-    inputAlbum.value.url != ""
-  )
-    return true;
-  else return false;
-}
-
-// Перенести список в отдельный файл
 </script>
 
 <template>
