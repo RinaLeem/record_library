@@ -56,23 +56,13 @@ export function addAlbum(album) {
 export function deleteAlbum(album) {
   const transaction = db.transaction(["albums"], "readwrite");
   const objectStore = transaction.objectStore("albums");
-  const request = objectStore.delete(album.id); // Удаление по уникальному id
+  const request = objectStore.delete(album.id);
   request.onsuccess = function (event) {
     console.log(
       "Album with id " + album.id + " has been deleted from the database"
     );
   };
 }
-
-// export function getAllAlbums() {
-//   const transaction = db.transaction(["albums"], "readonly");
-//   const objectStore = transaction.objectStore("albums");
-//   const request = objectStore.getAll();
-
-//   request.onsuccess = function (event) {
-//     console.log("All albums:", request.result);
-//   };
-// }
 
 export function getAllAlbums(callback) {
   const transaction = db.transaction(["albums"], "readonly");
@@ -91,19 +81,3 @@ export function getAllAlbums(callback) {
     console.error("Error fetching albums:", event.target.error);
   };
 }
-
-// export function getAllAlbums() {
-//   return new Promise((resolve, reject) => {
-//     const transaction = db.transaction(["albums"], "readonly");
-//     const objectStore = transaction.objectStore("albums");
-//     const request = objectStore.getAll();
-
-//     request.onsuccess = function (event) {
-//       resolve(request.result);
-//     };
-
-//     request.onerror = function (event) {
-//       reject(request.error);
-//     };
-//   });
-// }
