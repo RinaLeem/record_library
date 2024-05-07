@@ -1,28 +1,27 @@
-export let db;
+let db;
 
-const request = indexedDB.open("myDatabase", 1);
+// const request = indexedDB.open("myDatabase", 1);
 
-request.onerror = function (event) {
-  console.error("Database error: " + event.target.errorCode);
-};
+// request.onerror = function (event) {
+//   console.error("Database error: " + event.target.errorCode);
+// };
 
-request.onsuccess = function (event) {
-  db = event.target.result;
-  console.log("Database opened successfully");
-  getAllAlbums();
-};
+// request.onsuccess = function (event) {
+//   db = event.target.result;
+//   console.log("Database opened successfully");
+//   getAllAlbums();
+// };
 
-request.onupgradeneeded = function (event) {
-  db = event.target.result;
-  const objectStore = db.createObjectStore("albums", {
-    keyPath: "id",
-    autoIncrement: true,
-  });
-  console.log("Object store created successfully");
-};
+// request.onupgradeneeded = function (event) {
+//   db = event.target.result;
+//   const objectStore = db.createObjectStore("albums", {
+//     keyPath: "id",
+//     autoIncrement: true,
+//   });
+//   console.log("Object store created successfully");
+// };
 
 export function openDB() {
-  console.log("openDB");
   return new Promise((resolve, reject) => {
     const request = indexedDB.open("myDatabase", 1);
 

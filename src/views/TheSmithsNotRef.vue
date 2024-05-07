@@ -1,12 +1,17 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { checkInput } from "./function.js";
+import { zoomIn, zoomOut, checkInput } from "./function.js";
 import {
   openDB,
   addAlbum as addToAlbums,
   deleteAlbum as deleteFromAlbums,
   getAllAlbums,
 } from "./albums.js";
+
+onMounted(async () => {
+  await openDB();
+  updateAlbumsList(albumsTheSmith);
+});
 
 const albumsTheSmith = ref([]);
 
@@ -48,11 +53,6 @@ function updateAlbumsList(albumsTheSmith) {
     console.log("albumsTheSmith:", albumsTheSmith.value);
   });
 }
-
-onMounted(async () => {
-  await openDB();
-  updateAlbumsList(albumsTheSmith);
-});
 </script>
 
 <template>
@@ -65,7 +65,12 @@ onMounted(async () => {
       :key="album.name"
       class="album"
     >
-      <img class="albumImg" :src="album.imageUrl" />
+      <img
+        class="albumImg zoom"
+        :src="album.imageUrl"
+        @mouseover="zoomIn"
+        @mouseout="zoomOut"
+      />
       <div class="albumInfo">
         <p class="albumName">{{ album.name }}</p>
         <p class="albumYear">{{ album.year }}</p>
