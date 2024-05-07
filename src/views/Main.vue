@@ -110,7 +110,7 @@ input {
 .button {
   background-color: #fff;
   border-style: none;
-  margin-left: 20px;
+  margin-left: 0px;
   margin-right: 20px;
   color: red;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

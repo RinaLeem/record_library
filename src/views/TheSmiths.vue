@@ -59,7 +59,7 @@ function checkInput() {
       <div class="albumInfo">
         <p class="albumName">{{ album.name }}</p>
         <p class="albumYear">{{ album.year }}</p>
-        <button @click="deleteFromList(index)">X</button>
+        <button @click="deleteFromList(index)" class="button">X</button>
       </div>
     </div>
     <!--  

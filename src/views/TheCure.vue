@@ -60,7 +60,11 @@ function checkInput() {
       </div>
     </div>
 
-    <div v-for="album of albumsTheCure" :key="album.name" class="album">
+    <div
+      v-for="(album, index) of albumsTheCure"
+      :key="album.name"
+      class="album"
+    >
       <img
         class="albumImg zoom"
         :src="album.imageUrl"
@@ -70,7 +74,7 @@ function checkInput() {
       <div class="albumInfo">
         <p class="albumName">{{ album.name }}</p>
         <p class="albumYear">{{ album.year }}</p>
-        <button @click="deleteFromList(index)">X</button>
+        <button @click="deleteFromList(index)" class="button">X</button>
       </div>
     </div>
 
