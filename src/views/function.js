@@ -7,17 +7,22 @@ export function zoomOut(event) {
 }
 
 export function checkInput(inputAlbum) {
-  if (
-    inputAlbum.value &&
-    inputAlbum.value.name != "" &&
-    inputAlbum.value.year >= "100" &&
-    inputAlbum.value.year <= "2024" &&
-    inputAlbum.value.year != "" &&
-    inputAlbum.value.url != ""
-  )
-    return true;
-  else {
-    alert("Uncorrect input");
+  if (inputAlbum.value.name == "") {
+    alert("Введите название");
     return false;
   }
+  if (inputAlbum.value.url == "") {
+    alert("Введите ссылку на картинку");
+    return false;
+  }
+  if (
+    inputAlbum.value.year < "100" ||
+    inputAlbum.value.year > "2024" ||
+    inputAlbum.value.year == ""
+  ) {
+    alert("Введите верный год");
+    return false;
+  }
+
+  return true;
 }
